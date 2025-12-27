@@ -200,10 +200,7 @@ const Puzzle = () => {
           </section>
 
           {/* INPUT */}
-          <form
-            onSubmit={handleSubmit}
-            className="mt-auto flex flex-col gap-4 py-3"
-          >
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4 py-3">
             <p className="text-center text-sm text-slate-700">
               Apa jawaban dari gambar di atas?
             </p>
