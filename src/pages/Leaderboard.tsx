@@ -11,9 +11,8 @@ export type Leaderboard = {
 const Leaderboard = () => {
   const { level } = useParams();
   const name = localStorage.getItem("name");
-  if (!level) return;
 
-  const leaderboard = useLeaderboard(level);
+  const leaderboard = useLeaderboard(level ?? "");
 
   const rank = leaderboard.data
     .filter((v) => v.level == level)

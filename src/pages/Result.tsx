@@ -22,9 +22,8 @@ const Result: React.FC<ResultProps> = ({
   const { level } = useParams();
   const name = localStorage.getItem("name");
 
-  if (!name || !level) return;
+  const leaderboard = useLeaderboard(level ?? "");
 
-  const leaderboard = useLeaderboard(level);
   const rank =
     leaderboard.data
       .filter((v) => v.level == level)
@@ -44,7 +43,9 @@ const Result: React.FC<ResultProps> = ({
     return `${mm}:${ss}`;
   };
 
-  return (
+  return !leaderboard.data ? (
+    <p>Belum ada peringkat</p>
+  ) : (
     <main className="flex-1 overflow-y-auto no-scrollbar flex flex-col w-full max-w-md mx-auto pb-3">
       {/* Top App Bar */}
       <header className="top-0 z-50 flex items-center justify-between p-4 pb-2 border-b border-white/5">

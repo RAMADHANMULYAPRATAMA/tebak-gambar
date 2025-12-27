@@ -14,10 +14,7 @@ const LevelCard: React.FC<LevelCardProps> = ({
   title,
   description,
   level,
-  icon,
   image,
-  open = false,
-  locked = false,
 }) => {
   const navigate = useNavigate();
 
