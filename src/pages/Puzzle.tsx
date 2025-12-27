@@ -187,7 +187,7 @@ const Puzzle = () => {
           )}
 
           {/* IMAGE */}
-          <section className="py-4 relative">
+          <section className="relative">
             <span className="text-xs font-bold text-slate-800 absolute top-8 left-4 z-10">
               {progress + 1}/{puzzles.length}
             </span>
@@ -200,7 +200,10 @@ const Puzzle = () => {
           </section>
 
           {/* INPUT */}
-          <form onSubmit={handleSubmit} className="mt-auto flex flex-col gap-4">
+          <form
+            onSubmit={handleSubmit}
+            className="mt-auto flex flex-col gap-4 py-3"
+          >
             <p className="text-center text-sm text-slate-700">
               Apa jawaban dari gambar di atas?
             </p>

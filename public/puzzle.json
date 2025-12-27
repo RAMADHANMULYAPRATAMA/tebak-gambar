@@ -5,6 +5,30 @@
       "image": "/images/easy1.jpeg",
       "suggested": "dunia",
       "answer": "jendela dunia"
+    },
+    {
+      "id": 2,
+      "image": "/images/easy2.jpeg",
+      "suggested": "goyang",
+      "answer": "kursi goyang"
+    },
+    {
+      "id": 3,
+      "image": "/images/easy3.jpeg",
+      "suggested": "kutu",
+      "answer": "kutu buku"
+    },
+    {
+      "id": 4,
+      "image": "/images/easy4.jpeg",
+      "suggested": "papan",
+      "answer": "papan jalan"
+    },
+    {
+      "id": 5,
+      "image": "/images/easy5.jpeg",
+      "suggested": "hari",
+      "answer": "matahari"
     }
   ],
   "sedang": [
