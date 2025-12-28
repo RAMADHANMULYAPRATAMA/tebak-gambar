@@ -30,7 +30,7 @@ const LevelCard: React.FC<LevelCardProps> = ({
           <h3 className="text-lg font-bold dark:text-white">{title}</h3>
           <p className="text-sm text-slate-500 ">{description}</p>
 
-          <span className="text-xs mt-5 text-blue-500">10 gambar</span>
+          <span className="text-xs mt-5 text-blue-500">5 gambar</span>
         </div>
       </div>
     </div>

@@ -7,5 +7,5 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   optimizeDeps: {
     include: ["firebase/app", "firebase/firestore"],
-  },
+  }
 });

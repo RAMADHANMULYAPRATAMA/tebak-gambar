@@ -6,12 +6,14 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import Level from "./pages/Level";
 import Puzzle from "./pages/Puzzle";
 import LeaderboardPage from "./pages/Leaderboard";
+import OverallLeaderboard from "./pages/OverallLeaderboard";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/leaderboard" element={<OverallLeaderboard />} />
         <Route path="/level">
           <Route index element={<Level />} />
           <Route path=":level">

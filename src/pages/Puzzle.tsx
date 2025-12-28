@@ -148,24 +148,24 @@ const Puzzle = () => {
       {/* HEADER */}
       <header className="sticky dark:text-white top-0 z-10 flex items-center justify-between p-4">
         <Link
-          to={".."}
-          className="flex size-10 items-center justify-center rounded-full hover:bg-slate-200 dark:hover:bg-surface-dark transition-colors"
-        >
-          <span className="material-symbols-outlined">arrow_back</span>
-        </Link>
+            to={".."}
+            className="flex p-3 bg-blue-500 text-white size-10 items-center justify-center rounded-full hover:bg-surface-dark transition-colors"
+          >
+            <span className="material-symbols-outlined">arrow_back</span>
+          </Link>
 
         {/* <div className="flex flex-col items-center "> */}
         <h2 className="text-lg font-bold">Level {level}</h2>
 
         {/* </div> */}
 
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-2">
           <span className="material-symbols-outlined">timer</span>
           <span>{formatTime(timer)}</span>
 
           <button
             onClick={() => setAnswer(puzzle?.suggested.toUpperCase() ?? "")}
-            className="flex size-10 items-center justify-center rounded-full hover:bg-slate-200 dark:hover:bg-surface-dark text-primary transition-colors"
+            className="flex size-10 p-3 bg-blue-500 items-center justify-center rounded-full text-white"
           >
             <span className="material-symbols-outlined">lightbulb</span>
           </button>
@@ -201,22 +201,22 @@ const Puzzle = () => {
 
           {/* INPUT */}
           <form onSubmit={handleSubmit} className="flex flex-col gap-4 py-3">
-            <p className="text-center text-sm text-slate-700">
+            <p className="text-center text-sm text-slate-700 font-bold">
               Apa jawaban dari gambar di atas?
             </p>
 
             <input
               value={answer}
               ref={inputRef}
-              onFocus={() => {
-                setTimeout(() => {
-                  inputRef.current?.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center",
-                  });
-                }, 300);
-              }}
-              onChange={(e) => setAnswer(e.target.value.toUpperCase())}
+              // onFocus={() => {
+              //   setTimeout(() => {
+              //     inputRef.current?.scrollIntoView({
+              //       behavior: "smooth",
+              //       block: "center",
+              //     });
+              //   }, 300);
+              // }}
+              onChange={(e) => !status && setAnswer(e.target.value.toUpperCase())}
               placeholder="KETIK JAWABAN..."
               className="outline-none h-14 w-full rounded-xl bg-white shadow-xl text-lg font-bold tracking-widest text-center px-4"
             />

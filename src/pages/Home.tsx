@@ -1,9 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 const Home: React.FC = () => {
   const [name, setName] = useState<string | null>(localStorage.getItem("name"));
   const [isEditing, setIsEditing] = useState(false);
+  const navigate = useNavigate();
+
+  // console.log(document.querySelector('#music') as HTMLAudioElement);
 
   const saveName = (value: string) => {
     setName(value);
@@ -73,8 +76,13 @@ const Home: React.FC = () => {
             </button>
           </div>
         )}
-        <Link
-          to={"/level"}
+        <button
+          onClick={() => {
+            const music = document.querySelector('#music') as HTMLAudioElement
+            music.play();
+            if (!name)  alert('Harap isi nama');
+            else navigate("/level")
+          }}
           className="group relative w-full h-16 bg-primary hover:bg-sky-500 active:scale-[0.98] transition-all duration-200 rounded-2xl flex items-center justify-between px-6 shadow-lg shadow-primary/25 overflow-hidden"
         >
           <div className="absolute inset-0 bg-linear-to-r from-white/0 via-white/10 to-white/0 translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
@@ -93,9 +101,9 @@ const Home: React.FC = () => {
           <span className="material-symbols-outlined text-white/70 group-hover:translate-x-1 transition-transform text-[20px]">
             arrow_forward_ios
           </span>
-        </Link>
+        </button>
         <Link
-          to={"/level/mudah/leaderboard"}
+          to={"/leaderboard"}
           className="group relative w-full h-16 bg-cyan-400 hover:bg-cyan-500 active:scale-[0.98] transition-all duration-200 rounded-2xl flex items-center justify-between px-6 shadow-lg shadow-primary/25 overflow-hidden"
         >
           <div className="absolute inset-0 bg-linear-to-r from-white/0 via-white/10 to-white/0 translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />

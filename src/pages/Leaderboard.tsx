@@ -23,12 +23,12 @@ const Leaderboard = () => {
       <main className="relative flex w-full flex-col justify-between overflow-x-hidden mx-auto max-w-md">
         {/* Top App Bar */}
         <div className="flex items-center py-4 pb-6 justify-between ">
-          <Link
-            to={"/level"}
+          <button
+            onClick={() => window.history.back()}
             className="text-slate-900 dark:text-white flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
           >
             <span className="material-symbols-outlined">arrow_back</span>
-          </Link>
+          </button>
           <h2 className="text-lg font-bold leading-tight flex-1 text-center pr-10 tracking-tight">
             Waktu Tercepat
           </h2>

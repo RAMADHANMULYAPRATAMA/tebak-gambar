@@ -1,67 +1,33 @@
 import { Link } from "react-router";
-import { useOverallLeaderboard } from "../hooks/useOverallLeaderboard";
-import PodiumCard from "../components/PodiumCard";
 
-const OverallLeaderboard = () => {
-  const { data: rank, loading } = useOverallLeaderboard();
+const colors = ['bg-blue-500', 'bg-green-500', 'bg-red-500'];
 
-  console.log(rank);
-
-  if (loading) return <p className="text-center mt-20">Loading...</p>;
-
-  return (
-    <div className="bg-background-light dark:bg-background-dark min-h-screen">
-      <div className="max-w-md mx-auto">
-        {/* Header */}
-        <div className="sticky top-0 p-4 bg-background-light dark:bg-background-dark border-b">
-          <h2 className="text-lg font-bold text-center">
-            🏆 Peringkat Keseluruhan
-          </h2>
-        </div>
-
-        {/* Podium */}
-        <div className="flex justify-center gap-4 pt-8">
-          {rank[1] && <PodiumCard rank={2} data={rank[1]} />}
-          {rank[0] && <PodiumCard rank={1} data={rank[0]} big />}
-          {rank[2] && <PodiumCard rank={3} data={rank[2]} />}
-        </div>
-
-        {/* List */}
-        <div className="px-4 mt-8 space-y-2">
-          {rank.map(
-            (v, i) =>
-              i > 2 && (
-                <div
-                  key={v.userId}
-                  className="flex justify-between bg-white dark:bg-card-dark p-4 rounded-xl"
-                >
-                  <div className="flex gap-3">
-                    <span className="font-bold w-6">{i + 1}</span>
-                    <div>
-                      <p className="font-semibold">{v.name}</p>
-                      <p className="text-xs text-gray-400">
-                        Easy {v.easy}s • Medium {v.medium}s • Hard {v.hard}s
-                      </p>
-                    </div>
-                  </div>
-                  <b>{v.totalTime}s</b>
-                </div>
-              )
-          )}
-        </div>
-
-        {/* Footer */}
-        <div className="p-4">
-          <Link
-            to="/"
-            className="block text-center bg-primary text-white py-3 rounded-xl font-bold"
+export default function OverallLeaderboard() {
+  return <div className="relative flex min-h-dvh max-w-md mx-auto flex-col overflow-hidden shadow-2xl">
+      {/* HEADER */}
+      <header className="sticky relative items-center top-0 z-10 flex  p-4 mb-6">
+        <Link
+            to={".."}
+            className="absolute flex p-3 bg-blue-500 text-white size-10 items-center justify-center rounded-full hover:bg-surface-dark transition-colors"
           >
-            Kembali ke Beranda
+            <span className="material-symbols-outlined">arrow_back</span>
           </Link>
-        </div>
-      </div>
-    </div>
-  );
-};
 
-export default OverallLeaderboard;
+        <h2 className="text-lg font-bold text-center mx-auto">Pilih Level Leaderboard</h2>
+
+      </header>
+
+      <div className="space-y-2 px-5">
+        {['mudah', 'sedang', 'sulit'].map((level, i) =>  
+        <Link
+          to={`/level/${level}/leaderboard`}
+          className={`${colors[i]} flex items-center justify-center w-full h-12 rounded-full  text-white font-medium text-base active:scale-[0.98] transition-all`}
+        >
+          <span className="material-symbols-outlined mr-2 text-[20px]">
+            trophy
+          </span>
+          Peringkat {level}
+        </Link>)}
+        </div>
+    </div> 
+}
